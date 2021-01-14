@@ -1,0 +1,25 @@
+{
+    "name": "03_babel",
+    "version": "1.0.0",
+    "description": "This project is made for medium article",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [
+        "node.js",
+        "babel"
+    ],
+    "author": "Ash Kierans",
+    "license": "ISC",
+    "dependencies": {
+        "lodash": "^4.17.20",
+        "moment": "^2.22.2"
+    },
+    "devDependencies": {
+        "@babel/preset-env": "^7.2.3",
+        "@babel/core": "^7.2.2",
+        "@babel/polyfill": "^7.2.5",
+        "@babel/register": "^7.0.0"
+    }
+}

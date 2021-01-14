@@ -1,0 +1,15 @@
+{
+  "name": "02_basic",
+  "version": "1.0.0",
+  "description": "Node.js tutorial from a Medium article",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "node.js",
+    "basics"
+  ],
+  "author": "Ash Kierans",
+  "license": "ISC"
+}
