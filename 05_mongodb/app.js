@@ -20,9 +20,9 @@ MongoClient.connect(CONN_URL_NET, { useNewUrlParser: true }, function (err, clie
 	mongoClient = client;
 })
 
-
-
+//Initiate app
 let app = express();
+
 //parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }))
 //parse application/json
