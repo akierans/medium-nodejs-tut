@@ -1,7 +1,8 @@
-import bodyParser from 'body-parser';
 import express from 'express';
+import bodyParser from 'body-parser';
 import user from './routes/user';
 import {MongoClient} from 'mongodb';
+import {clientApiKeyValidation} from './common/authUtils';
 
 //Load dotenv
 const dotenv = require('dotenv');
@@ -19,6 +20,8 @@ MongoClient.connect(CONN_URL_NET, { useNewUrlParser: true }, function (err, clie
 	mongoClient = client;
 })
 
+
+
 let app = express();
 //parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }))
@@ -28,6 +31,12 @@ app.use((req,res,next)=>{
 	req.db = mongoClient.db('test');
 	next();
 })
+
+app.use((req,res,next)=>{
+   req.db = mongoClient.db('test');
+   next();
+});
+app.use(clientApiKeyValidation);
 
 app.get('/',(req,res,next)=>{
    res.status(200).send({
