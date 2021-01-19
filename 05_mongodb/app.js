@@ -3,9 +3,19 @@ import express from 'express';
 import user from './routes/user';
 import {MongoClient} from 'mongodb';
 
-const CONN_URL = 'mongodb://localhost:27017';
+//Load dotenv
+const dotenv = require('dotenv');
+dotenv.config();
+
+//Pull credentials from .env file
+const username = process.env.USERNAME;
+const password = process.env.PASSWORD;
+
+//Connection string for MongoDB on network
+const CONN_URL_NET = `mongodb://${username}:${password}@192.168.1.137:27017`;
+//let CONN_URL = 'mongodb://localhost:27017';
 let mongoClient = null;
-MongoClient.connect(CONN_URL, { useNewUrlParser: true }, function (err, client) {
+MongoClient.connect(CONN_URL_NET, { useNewUrlParser: true }, function (err, client) {
 	mongoClient = client;
 })
 
