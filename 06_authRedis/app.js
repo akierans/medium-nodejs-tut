@@ -27,7 +27,7 @@ MongoClient.connect(CONN_URL_NET, { useNewUrlParser: true }, function (err, clie
 let redisClient = null;
 redisClient = redis.createClient({
 	prefix: 'node-sess:',
-	host: 'localhost'
+	host: '192.168.1.137'
 });
 
 //Initiate app

@@ -31,11 +31,13 @@ export const clientApiKeyValidation = async (req, res, next) => {
 }
 
 export const isNewSessionRequired = (httpMethod, url) => {
+
     for (let routeObj of newSessionRoutes) {
         if (routeObj.method === httpMethod && routeObj.path === url) {
             return true;
         }
     }
+
     return false;
 }
 
@@ -48,6 +50,7 @@ export const isAuthRequired = (httpMethod, url) => {
     return false;
 }
 
+
 export const generateRandomSessionID = () => {
     return uuid.v4();
 }
@@ -57,7 +60,7 @@ export const getRedisSessionData = (redisClient,sessionId) => {
         redisClient.get(sessionId, function (err, data) {
             if (err) {
                 reject(err);
-            }
+            } 
             resolve(data);
         });
     })
